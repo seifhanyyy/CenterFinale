@@ -1,0 +1,3 @@
+git commit -m"seocnd"
+git remote add orgin https://github.com/seifhanyyy/Center.git
+git push -u orgin master

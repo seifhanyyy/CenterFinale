@@ -1,0 +1,18 @@
+body{
+    background-color: white;
+}
+.card-header{
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 68%;
+    font-size: 50px;
+    color: #5fcf80;
+}
+.card-body{
+    margin-top: 5%;
+    margin-left: 48%;
+}
+.col-md-6{
+    border: black;
+    color: black;
+}
