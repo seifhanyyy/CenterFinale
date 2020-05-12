@@ -26,20 +26,48 @@ Route::get('/logout', function () {
 
 });
 Route::get('/AddTeacher', function () {
+    if(Auth::user()->type == 1){
     return view('AddTeacher');
+    }
+    else if (Auth::user()->type==2){
+        return view('Teacher');
+    }
+    else if(Auth::user()->type==3){
+        return view('Student');
+    }
+    else{
+        return view('welcome');
+    }
 });
+Route::get('/Transfer', function () {
+    if(Auth::user()->type == 1){
+    return view('Transfer');
+    }
+    else if (Auth::user()->type==2){
+        return view('Teacher');
+    }
+    else if(Auth::user()->type==3){
+        return view('Student');
+    }
+    else{
+        return view('welcome');
+    }
+});
+
 Route::get('/addclass', function () {
     if(Auth::user()->type == 1){
     return view('addclass');
-    }else if (Auth::user()->type == 2)
+    }
+    else if (Auth::user()->type == 2)
     {
         return view('Teacher');
-      
-    }else
-    {
-        echo"<script>Alert('Admins Only Sorry hacker');</script>";
-        return view('Student','student');
-     
+
+    }
+    else if(Auth::user()->type==3){
+        return view('Student');
+    }
+    else{
+        return view('welcome');
     }
 });
 
