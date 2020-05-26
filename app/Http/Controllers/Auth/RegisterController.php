@@ -46,12 +46,13 @@ class RegisterController extends Controller
     }
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
         $role = Auth::user();
 
         if ($role) {
+            $this->validator2($request->all())->validate();
             event(new Registered($user = $this->create2($request->all())));
         } else {
+            $this->validator($request->all())->validate();
 
             event(new Registered($user = $this->create($request->all())));
         }
@@ -62,7 +63,6 @@ class RegisterController extends Controller
         return $request->wantsJson()
             ? new Response('', 201)
             : redirect($this->redirectPath());
-    
     }
 
     /**
@@ -82,6 +82,19 @@ class RegisterController extends Controller
 
 
         ]);
+        
+    }
+    protected function validator2(array $data2)
+    {
+        return Validator::make($data2, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phonenum' => 'required|regex:/(01)[0-9]{9}/',
+
+
+        ]);
+        
     }
 
     /**
@@ -117,11 +130,16 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data2['name'],
-            'last name'=>$data2['LastName'],
+            'lastName'=>$data2['LastName'],
             'email' => $data2['email'],
             'password' => Hash::make($data2['password']),
+            'img'=>'default.jpg',
             'phonenum'=>$data2['phonenum'],
             'type'=>2,
+            'selected'=>NuLL,
+            'parentEmail'=>NuLL,
+            'Gender'=>NuLL,
+            'parentnum'=>NuLL
         ]);
     }
    

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class uploadgradescontroller extends Controller
 {
-    public function index()
+    public function ShowAllStudents()//byreturn all students
     {
         $x = AUTH::user()->name;
         $mar3ey=AUTH::user()->lastName;
@@ -21,17 +21,17 @@ class uploadgradescontroller extends Controller
         return view('UploadGrade', ['uploadgrade' => $uploadgrade]);
     }
 
-    function update(Request $request)
+    function UpdateGrades(Request $request)//update Grades
     {
         $week = $request->input('QuizWeek');
         $grade = $request->input('Grade');
         $sid = $request->input('id');
         DB::update("update grades set quizweek=$week, grade=$grade where sid=$sid");
-        return view("/Teacher");
+        return view("/UploadGrade");
     }
 
 
-    public function insert(Request $request)
+    public function AddGrades(Request $request)// insertGrades
     {
         $week = $request->input('QuizWeek');
         $grade = $request->input('Grade');
