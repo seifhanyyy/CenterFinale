@@ -17,13 +17,14 @@ class CreateClassesTable extends Migration
             $table->bigIncrements('id');
             $table->string("day");
             $table->string("subject");
-            $table->string("teacher");
+            $table->unsignedBigInteger("teacherId");
             $table->string("starts");
             $table->string("ends");
             $table->integer('capacity');
             $table->string("year");
             $table->string("gender");
             $table->timestamps();
+            $table->foreign('teacherId')->references('id')->on('users')->onDelete('cascade')->constrained();
         });
     }
 
