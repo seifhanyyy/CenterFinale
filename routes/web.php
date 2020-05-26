@@ -116,7 +116,8 @@ Route::get('/Student', 'StudentController@CheckUserType')->middleware('auth');
 
 
 
-Route::get('/Adminclasses', 'studentclass@list');//msh3arfen eh di asln
+Route::get('/Adminclasses', 'studentclass@list');
+
 
 ?>
 
