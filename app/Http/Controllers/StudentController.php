@@ -41,7 +41,7 @@ class StudentController extends Controller
         $data = classes::all();
         return view('studentclasses', ['data' => $data]);
     }
-    public function EnrollStudent(Request $request)
+    public function EnrollStudent(Request $request) //enrolls student in a class
     {
         $classId = $request->input('classId');
     
@@ -54,7 +54,7 @@ class StudentController extends Controller
         return view('Student');
 
     }
-    public function DropClass(Request $request)
+    public function DropClass(Request $request) //drops student from a class
     {
         $classId = $request->input('classId');
     $alpha=Auth::user()->id;
