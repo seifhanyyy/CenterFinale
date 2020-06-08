@@ -44,9 +44,8 @@ return view('profile');
     }
     public function view()
     {
-        return view('profile');
+        return view('profile'); //returns to the profile page
     }
-
 
 }
 
