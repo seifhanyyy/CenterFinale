@@ -47,7 +47,7 @@ return view('profile');
         return view('profile');
     }
 
-
+jndfkljdslfkjsdklf
 
 }
 
