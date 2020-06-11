@@ -40,4 +40,8 @@ class uploadgradescontroller extends Controller
         DB::table('grades')->insert($data);
         return view("/Teacher");
     }
+    public function GetGrades(){
+        $grades = DB::select('select * from grades');
+        return view('Grade',['grades'=>$grades]);
+        }
 }

@@ -111,7 +111,7 @@ $users = DB::select("select * from users INNER JOIN studentandclasses on users.i
 foreach ($users as $user) {
     echo "<tr>";
     echo "<td>$user->name $user->lastName</td>";
-    echo"<form action='/viewprofile2' method='get'>"; //Edit
+    echo"<form action='/SelectedProfile' method='get'>"; //Edit
     echo"<input type = 'hidden' name = 'userId' value = '$user->id'/>";
     echo"<td><input type='submit' value='View' name='view'/></td>";
     echo"</form>";

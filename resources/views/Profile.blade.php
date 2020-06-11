@@ -79,12 +79,15 @@
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                            </li>
+                            <?php
+                            if(Auth::user()->type == '3'){
+                                echo'
+                         
                             <li class="nav-item">
                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="Grade.php">Grade</a>
                             </li>
+                            ';}
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -146,14 +149,18 @@
                                             <p> {{Auth::user()->email}}</p>
                                         </div>
                                     </div>
+                                    <?php  if(Auth::user()->type == '3')    
+                                    {  echo'                              
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Email Parent</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p> {{Auth::user()->parentEmail}}</p>
+                                           <p>'. Auth::user()->parentEmail.'</p>
                                         </div>
-                                    </div>
+                                    </div>';
+                                    }
+?>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Phone</label>
@@ -162,14 +169,21 @@
                                             <p>{{Auth::user()->phonenum}}</p>
                                         </div>
                                     </div>
+                                    <?php  if(Auth::user()->type == '3')
+                                    {
+                                        echo'
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Parent Phone number</label>
                                         </div>
+                                        
                                         <div class="col-md-6">
-                                            <p>{{Auth::user()->parentnum}}</p>
+                                            <p>'. Auth::user()->parentnum.'</p>
                                         </div>
-                                    </div>
+                                        
+                                    </div>';
+                                    }
+                                    ?> 
                            <!---   <div class="row">
                                         <div class="col-md-6">
                                             <label>Profession</label>

@@ -42,7 +42,7 @@ class TeacherController extends Controller
         return view('viewstudents', ['data' => $data], ['classId' => $classId]);
     }
     
-    public function ViewProfile(Request $request)
+    public function ViewSelectedProfile(Request $request)
     {
         $userId = $request->input('userId');
         $users = DB::Select("Select * from users where id = $userId");

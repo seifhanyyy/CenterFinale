@@ -87,12 +87,12 @@ Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->na
     Route::get('/adminclasses', 'AdminController@ViewClasses');
     Route::get('/DropClass', 'StudentController@DropClass');
     Route::get('/TransferStudent', 'AdminController@TransferStudent');
-    Route::get('/viewprofile2', 'TeacherController@ViewProfile');
+    Route::get('/SelectedProfile', 'TeacherController@ViewSelectedProfile');
     
     Route::get('/seif', 'AdminController@AddClasses'); //bt3t classes
     
 
-    Route::get('Grade', 'gradescontroller@index')->name('Grade');
+    Route::get('Grade', 'uploadgradescontroller@GetGrades')->name('Grade');
     Route::get('UploadGrade', 'uploadgradescontroller@ShowAllStudents')->name('UploadGrade');
     Route::get('/insertgrades', 'uploadgradescontroller@AddGrades');
     Route::get('/updategrades', 'uploadgradescontroller@UpdateGrades');
@@ -102,11 +102,11 @@ Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->na
 Auth::routes();
 Route::get('/Admin', 'AdminController@CheckUserType');
 Route::get('/Teacher', 'TeacherController@CheckUserType');
-Route::get('/profile', 'ProfileController@view')->name('deeeeb');
+Route::get('/profile', 'ProfileController@ViewProfileStudent')->name('deeeeb');
 
 
-Route::post('/profileUpdated', 'ProfileController@index')->name('seifouzaelrashash');
-Route::get('/profileUpdated', 'ProfileController@view');
+Route::post('/profileUpdated', 'ProfileController@SetImage')->name('seifouzaelrashash');
+Route::get('/profileUpdated', 'ProfileController@ViewProfileStudent');
 
 Route::get('/Student', 'StudentController@CheckUserType')->middleware('auth');
 
