@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\classes;
 use Illuminate\Support\Facades\DB;
+use Nexmo\Message\Shortcode\Alert;
 
 class AdminController extends Controller
 {
@@ -55,16 +56,20 @@ class AdminController extends Controller
         $newclass = $_GET['newclass'];
         $studentId = $request->input('studentId');
         $capacity = $request->input('capacity');
-        $capacity++;
         $capacity1 = DB::select("select capacity from classes where id=$newclass");
         foreach ($capacity1 as $c) {
             $x = $c->capacity;
         }
-        $x--;
-        DB::table('classes')->where('id', $classId)->update(['capacity' => $capacity]);
-        //DB::table('studentandclasses')->where(['classId'=>$classId] AND ['studentId'=>$studentId])->update(['classId' => $newclass]);
-        DB::update("update studentandclasses set classId = '$newclass' where classId='$classId' AND studentId='$studentId'");
-        DB::table('classes')->where('id', $newclass)->update(['capacity' => $x]);
+        if($x>0){
+            $capacity++;
+            $x--;
+            DB::table('classes')->where('id', $classId)->update(['capacity' => $capacity]);
+            DB::update("update studentandclasses set classId = '$newclass' where classId='$classId' AND studentId='$studentId'");
+            DB::table('classes')->where('id', $newclass)->update(['capacity' => $x]);
+        }
+        else{
+            echo "<script type='text/javascript'>alert('New Class is full');</script>";
+        }
         return view('Admin');
     }
     public function AddClasses(Request $request)
