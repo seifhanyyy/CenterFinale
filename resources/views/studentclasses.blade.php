@@ -75,6 +75,7 @@ h4{
   <!--/ Navigation bar-->
 <h2>Book/Drop your classes</h2>
 <h3>Choose your available days</h3>
+
 </script>
 <form action="#" method="get">
   <div class = "ramez">
