@@ -55,10 +55,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -68,10 +68,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Parent E-Mail Address') }}</label>
+                            <label for="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" class="col-md-4 col-form-label text-md-right">{{ __('Parent E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="ParentEmail" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" type="email" class="form-control @error('email') is-invalid @enderror" name="ParentEmail" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
