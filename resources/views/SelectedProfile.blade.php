@@ -132,11 +132,13 @@
 
             echo "<table class = 'table'>
     <tr>
+    <th>Course Id</th>
     <th>Quiz Week</th>
     <th>Grade</th>
     </tr>";
             foreach ($grades as $grade) {
                 echo "<tr>";
+                echo "<td>" . $grade->courseId . "</td>";
                 echo "<td>" . $grade->quizweek . "</td>";
                 echo "<td>" . $grade->grade . "</td>";
                 echo "</tr>";
