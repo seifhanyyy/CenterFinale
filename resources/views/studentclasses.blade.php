@@ -17,6 +17,7 @@
     background: -webkit-linear-gradient(left, #a6a6a6, #25c264);
 }
 
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
