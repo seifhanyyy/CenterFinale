@@ -46,8 +46,10 @@ h4{
     color: #ffffff;
     margin-left: 10%;
 }
-#days{
+.ramez{
   color: #4a4a4a;
+  text-align: center;
+
 }
 </style>
 </head>
@@ -65,16 +67,19 @@ h4{
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="studentclasses.php">Classes</a></li>
+          <li class="btn-trial"><a href="/addclass">Add Classes</a></li>
+          <li class="btn-trial"><a href="/AddTeacher">Add Teacher</a></li>
+          <li class="btn-trial"><a href="/Transfer">Transfer students</a></li>
+          <li class="btn-trial"><a href="/logout">Sign out</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <!--/ Navigation bar-->
 <h2>Edit Classes</h2>
-<h3>1st Year</h3>
 </script>
 <form action="#" method="get">
+<div class ="ramez">
 <select name="days">
     <option value="Saturday">Saturday</option>
     <option value="Sunday">Sunday</option>
@@ -85,11 +90,12 @@ h4{
     <option value="Friday">Friday</option>
     </select>
 <input type="submit" name = "submit" value="Submit">
+</div>
+
 <?php
 $selected_val = '';
 if(isset($_GET['submit'])){
 $selected_val = $_GET['days'];  // Storing Selected Value In Variable
-echo $selected_val;
 }
 ?>
 </form>
@@ -103,6 +109,7 @@ echo $selected_val;
     <th>Starts</th>
     <th>Ends</th>
     <th>Capacity</th>
+    <th>Year</th>
     <th>Edit</th>
   </tr>
   
@@ -110,7 +117,6 @@ echo $selected_val;
   foreach($data as $i)
   {
   $s = $i->day;
-  echo $s;
   if($selected_val == $s)
   {
     //$x = "$i->id";
@@ -120,6 +126,7 @@ echo $selected_val;
     echo"<td>$i->starts</td>";
     echo"<td>$i->ends</td>";
     echo"<td>$i->capacity</td>";
+    echo"<td>$i->year</td>";
 
     // echo"<form action='/editclass' method='get'>"; //lel delete
     // echo"<input type = 'hidden' name = 'classId' value = '$i->id'/>";
@@ -140,125 +147,5 @@ echo $selected_val;
 </table>
 
 
-<h3>2nd Year</h3>
-<h4 for="days">Choose the day:
-<select id="days">
-  <option value="volvo">Saturday</option>
-  <option value="saab">Sunday</option>
-  <option value="opel">Monday</option>
-  <option value="audi">Tuesday</option>
-</select>
-</h4>
-<table style="float: center;">
-  <tr>
-    <th>Day</th>
-    <th>Time</th>
-    <th>Capacity</th>
-    <th>Change</th>
-  </tr>
-  <tr>
-    <td>Saturday</td>
-    <td>2:00 - 4:00PM</td>
-    <td>5/11</td>
-    <th><a href='#'?id=$id>Edit</a></th>
-  </tr>
-  <tr >
-    <td>Sunday</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-    <th><a href='#'?id=$id>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Monday</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Tuesday</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Wednesday</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Thursday</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Friday</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-</table>
-
-<h3>3rd Year</h3>
-<h4 for="days">Choose the day:
-<select id="days">
-  <option value="volvo">Saturday</option>
-  <option value="saab">Sunday</option>
-  <option value="opel">Monday</option>
-  <option value="audi">Tuesday</option>
-</select>
-</h4>
-<table style="float: center;">
-  <tr>
-    <th>Day</th>
-    <th>Time</th>
-    <th>Capacity</th>
-    <th>Change</th>
-  </tr>
-  <tr>
-    <td>Saturday</td>
-    <td>2:00 - 4:00PM</td>
-    <td>5/11</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr >
-    <td>Sunday</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Monday</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Tuesday</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Wednesday</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Thursday</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-  <tr>
-    <td>Friday</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-    <th><a href='#'?id=$id'>Edit</a></th>
-  </tr>
-
-</table>
 </body>
 </html>
