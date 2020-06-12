@@ -15,11 +15,13 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->unsignedBigInteger('sid');
+            $table->unsignedBigInteger('courseId');
             $table->integer('quizweek');
             $table->string('grade');
             $table->timestamps();
-            $table->primary(['sid', 'quizweek']);
+            $table->primary(['sid','courseId', 'quizweek']);
             $table->foreign('sid')->references('id')->on('users')->onDelete('cascade')->constrained();
+            $table->foreign('courseId')->references('id')->on('classes')->onDelete('cascade')->constrained();
         });
     }
 
