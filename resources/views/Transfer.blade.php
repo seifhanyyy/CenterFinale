@@ -90,29 +90,30 @@
             <th>New Course Id</th>
             <th>Transfer</th>
         </tr>
-<?php
-use Illuminate\Support\Facades\DB;
+        <?php
 
-$users = DB::select("select *,users.id as ID from users INNER JOIN studentandclasses on users.id = studentandclasses.studentId INNER JOIN classes on studentandclasses.classId=classes.Id");
-foreach ($users as $user) {
-    echo "<tr>";
-    echo "<td>$user->name</td>";
-    echo "<td>$user->classId</td>";
-    echo "<td>$user->day</td>";
-    echo "<td>$user->starts</td>";
-    echo "<td>$user->ends</td>";
-    echo "$user->ID";
-    echo"<form action='/TransferStudent' method='get'>";
-    echo"<td><input type = 'textfield' name = 'newclass' value = ''/></td>";
-    echo"<input type = 'hidden' name = 'studentId' value = '$user->ID'/>";
-    echo"<input type = 'hidden' name = 'classId' value = '$user->classId'/>";
-    echo"<input type = 'hidden' name = 'capacity' value '$user->capacity'/>";
-    echo"<th><input type='submit' value='Transfer' name='Transfer'/></th>";
-    echo"</form>";
-    echo "<tr>";
-}
-?>
- </table>
+        use Illuminate\Support\Facades\DB;
+
+        $users = DB::select("select *,users.id as ID from users INNER JOIN studentandclasses on users.id = studentandclasses.studentId INNER JOIN classes on studentandclasses.classId=classes.Id");
+        foreach ($users as $user) {
+            echo "<tr>";
+            echo "<td>$user->name</td>";
+            echo "<td>$user->classId</td>";
+            echo "<td>$user->day</td>";
+            echo "<td>$user->starts</td>";
+            echo "<td>$user->ends</td>";
+            echo "$user->ID";
+            echo "<form action='/TransferStudent' method='get'>";
+            echo "<td><input type = 'textfield' name = 'newclass' value = ''/></td>";
+            echo "<input type = 'hidden' name = 'studentId' value = '$user->ID'/>";
+            echo "<input type = 'hidden' name = 'classId' value = '$user->classId'/>";
+            echo "<input type = 'hidden' name = 'capacity' value '$user->capacity'/>";
+            echo "<th><input type='submit' value='Transfer' name='Transfer'/></th>";
+            echo "</form>";
+            echo "<tr>";
+        }
+        ?>
+    </table>
 </body>
 
 </html>

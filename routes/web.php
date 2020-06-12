@@ -23,83 +23,71 @@ Route::get('/', function () {
 Route::get('/logout', function () {
     Auth::logout();
     return view('welcome');
-
 });
 Route::get('/AddTeacher', function () {
-    if(Auth::user()->type == 1){
-    return view('AddTeacher');
-    }
-    else if (Auth::user()->type==2){
+    if (Auth::user()->type == 1) {
+        return view('AddTeacher');
+    } else if (Auth::user()->type == 2) {
         return view('Teacher');
-    }
-    else if(Auth::user()->type==3){
+    } else if (Auth::user()->type == 3) {
         return view('Student');
-    }
-    else{
+    } else {
         return view('welcome');
     }
 });
 Route::get('/Transfer', function () {
-    if(Auth::user()->type == 1){
-    return view('Transfer');
-    }
-    else if (Auth::user()->type==2){
+    if (Auth::user()->type == 1) {
+        return view('Transfer');
+    } else if (Auth::user()->type == 2) {
         return view('Teacher');
-    }
-    else if(Auth::user()->type==3){
+    } else if (Auth::user()->type == 3) {
         return view('Student');
-    }
-    else{
+    } else {
         return view('welcome');
     }
 });
 
 Route::get('/addclass', function () {
-    if(Auth::user()->type == 1){
-    return view('addclass');
-    }
-    else if (Auth::user()->type == 2)
-    {
+    if (Auth::user()->type == 1) {
+        return view('addclass');
+    } else if (Auth::user()->type == 2) {
         return view('Teacher');
-
-    }
-    else if(Auth::user()->type==3){
+    } else if (Auth::user()->type == 3) {
         return view('Student');
-    }
-    else{
+    } else {
         return view('welcome');
     }
 });
 
 Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset');
-    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.token');
-    Route::post('password/reset', 'ResetPasswordController@reset');
-   
+Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.token');
+Route::post('password/reset', 'ResetPasswordController@reset');
 
 
-    Route::get('/studentclasses', 'StudentController@ViewStudentClasses');
-    Route::get('/insert', 'StudentController@EnrollStudent');
-    Route::get('/editclass', 'AdminController@SelectedEditClass');
-    Route::get('/ramez', 'AdminController@EditClass');
+
+Route::get('/studentclasses', 'StudentController@ViewStudentClasses');
+Route::get('/insert', 'StudentController@EnrollStudent');
+Route::get('/editclass', 'AdminController@SelectedEditClass');
+Route::get('/ramez', 'AdminController@EditClass');
 
 
-    Route::get('/teacherclasses', 'TeacherController@ViewTeacherClasses');
-    Route::get('/view', 'TeacherController@ViewEnrolledStudents');
-    Route::get('/adminclasses', 'AdminController@ViewClasses');
-    Route::get('/DropClass', 'StudentController@DropClass');
-    Route::get('/TransferStudent', 'AdminController@TransferStudent');
-    Route::get('/SelectedProfile', 'TeacherController@ViewSelectedProfile');
-    
-    Route::get('/seif', 'AdminController@AddClasses'); //bt3t classes
-    
-    Route::get('/send-sms',['as'=>'send.sms','uses'=>'SendSMSController@sendSMS']);
+Route::get('/teacherclasses', 'TeacherController@ViewTeacherClasses');
+Route::get('/view', 'TeacherController@ViewEnrolledStudents');
+Route::get('/adminclasses', 'AdminController@ViewClasses');
+Route::get('/DropClass', 'StudentController@DropClass');
+Route::get('/TransferStudent', 'AdminController@TransferStudent');
+Route::get('/SelectedProfile', 'TeacherController@ViewSelectedProfile');
 
-    Route::get('Grade', 'uploadgradescontroller@GetGrades')->name('Grade');
-    Route::get('UploadGrade', 'uploadgradescontroller@ShowAllStudents')->name('UploadGrade');
-    Route::get('/insertgrades', 'uploadgradescontroller@AddGrades');
-    Route::get('/updategrades', 'uploadgradescontroller@UpdateGrades');
-   
+Route::get('/seif', 'AdminController@AddClasses'); //bt3t classes
+
+Route::get('/send-sms', ['as' => 'send.sms', 'uses' => 'SendSMSController@sendSMS']);
+
+Route::get('Grade', 'uploadgradescontroller@GetGrades')->name('Grade');
+Route::get('UploadGrade', 'uploadgradescontroller@ShowAllStudents')->name('UploadGrade');
+Route::get('/insertgrades', 'uploadgradescontroller@AddGrades');
+Route::get('/updategrades', 'uploadgradescontroller@UpdateGrades');
+
 
 
 Auth::routes();
@@ -120,7 +108,3 @@ Route::get('/Student', 'StudentController@CheckUserType')->middleware('auth');
 
 
 Route::get('/Adminclasses', 'studentclass@list');
-
-
-?>
-

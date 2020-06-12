@@ -78,7 +78,7 @@
         </div>
     </nav>
     <!--/ Navigation bar-->
-    <h2>Students That  In Course</h2>
+    <h2>Students That In Course</h2>
     </script>
     <form action="#" method="get">
         <select name="days">
@@ -92,11 +92,11 @@
         </select>
         <input type="submit" name="submit" value="Submit">
         <?php
-$selected_val = '';
-if (isset($_GET['submit'])) {
-    $selected_val = $_GET['days']; // Storing Selected Value In Variable
-}
-?>
+        $selected_val = '';
+        if (isset($_GET['submit'])) {
+            $selected_val = $_GET['days']; // Storing Selected Value In Variable
+        }
+        ?>
     </form>
     <br>
     <table style="float: center;">
@@ -104,21 +104,22 @@ if (isset($_GET['submit'])) {
             <th>Student Name</th>
             <th>Profiles</th>
         </tr>
-<?php
-use Illuminate\Support\Facades\DB;
+        <?php
 
-$users = DB::select("select * from users INNER JOIN studentandclasses on users.id = studentandclasses.studentId where studentandclasses.classId = $classId");
-foreach ($users as $user) {
-    echo "<tr>";
-    echo "<td>$user->name $user->lastName</td>";
-    echo"<form action='/SelectedProfile' method='get'>"; //Edit
-    echo"<input type = 'hidden' name = 'userId' value = '$user->id'/>";
-    echo"<td><input type='submit' value='View' name='view'/></td>";
-    echo"</form>";
-    echo "<tr>";
-}
-?>
- </table>
+        use Illuminate\Support\Facades\DB;
+
+        $users = DB::select("select * from users INNER JOIN studentandclasses on users.id = studentandclasses.studentId where studentandclasses.classId = $classId");
+        foreach ($users as $user) {
+            echo "<tr>";
+            echo "<td>$user->name $user->lastName</td>";
+            echo "<form action='/SelectedProfile' method='get'>"; //Edit
+            echo "<input type = 'hidden' name = 'userId' value = '$user->id'/>";
+            echo "<td><input type='submit' value='View' name='view'/></td>";
+            echo "</form>";
+            echo "<tr>";
+        }
+        ?>
+    </table>
 </body>
 
 </html>

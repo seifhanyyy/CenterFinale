@@ -48,23 +48,23 @@
             </div>
             <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+            use Illuminate\Support\Facades\Auth;
+            use Illuminate\Support\Facades\DB;
 
 
-echo "<table class = 'table'>
+            echo "<table class = 'table'>
 <tr>
 <th>Quiz week</th>
 <th>Grade</th>
 </tr>";
-foreach ($grades as $grade) {
-    if ($grade->sid == Auth::user()->id) {
-        echo "<tr>";
-        echo "<td>" . $grade->quizweek . "</td>";
-        echo "<td>" . $grade->grade . "</td>";
-        echo "</tr>";
-    }
-}
-echo "</table>";
-$grades = DB::select('select * from grades');
-['grades'=>$grades];
+            foreach ($grades as $grade) {
+                if ($grade->sid == Auth::user()->id) {
+                    echo "<tr>";
+                    echo "<td>" . $grade->quizweek . "</td>";
+                    echo "<td>" . $grade->grade . "</td>";
+                    echo "</tr>";
+                }
+            }
+            echo "</table>";
+            $grades = DB::select('select * from grades');
+            ['grades' => $grades];

@@ -15,6 +15,7 @@
 
 
 </head>
+
 <body>
   <!--Navigation bar-->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -37,7 +38,7 @@
   </nav>
   <!--/ Navigation bar-->
   <!--Modal box-->
-  
+
   <!--/ Modal box-->
   <!--Banner-->
   <div class="banner">
@@ -84,7 +85,7 @@
         <div class="col-md-2 col-sm-4">
           <p>
             <button name="submit" type="submit" class="btn btn-block btn-submit">
-            Submit <i class="fa fa-arrow-right"></i></button>
+              Submit <i class="fa fa-arrow-right"></i></button>
           </p>
         </div>
       </form>
@@ -97,7 +98,7 @@
         <li><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
       </ul>
       <div class="credits">
-        
+
         Designed by <a href="https://bootstrapmade.com/">Seifoa7</a>
       </div>
     </div>
@@ -113,4 +114,3 @@
 </body>
 
 </html>
-
