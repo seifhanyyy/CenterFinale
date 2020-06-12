@@ -116,7 +116,7 @@ use Illuminate\Support\Facades\DB;
 $alpha = Auth::user()->id;
 foreach ($data as $i) {
     $s = $i->day;
-    if ($selected_val == $s and $i->year == Auth::user()->selected and $i->gender == Auth::user()->gender) {
+    if ($selected_val == $s and $i->year == Auth::user()->selected and $i->gender == Auth::user()->Gender) {
         //$x = "$i->id";
         echo "<tr>";
         echo "<td>$i->day</td>";
