@@ -27,6 +27,7 @@
             background: white;
             border: 3px solid black;
         }
+        
 
         td,
         th {
