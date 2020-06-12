@@ -52,35 +52,42 @@
             margin-left: 10%;
         }
 
-        #days {
-            color: #4a4a4a;
+        .ramez{
+        color: #4a4a4a;
+        text-align: center;
         }
     </style>
 </head>
 
 <body>
     <!--Navigation bar-->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/Admin">Al-Mishkah<span></span></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/studentclasses">Classes</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--/ Navigation bar-->
-    <h2>Students That  In Course</h2>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Teacher">Al-Mishkah<span></span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="btn-trial"><a href="/UploadGrade">Upload Grades</a></li>
+          <li class="btn-trial"><a href="/teacherclasses">View Classes</a></li>
+          <li class="btn-trial"><a href="/profile">Profile</a></li>
+          <li class="btn-trial"><a href="https://drive.google.com/open?id=1SGmnWhhbDm5lb2vsyP5z-sfcTxZDi-O1">Course Mats</a></li>
+
+          <li class="btn-trial"><a href="/logout">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
+    <h2>Students Registered In The Course</h2>
     </script>
     <form action="#" method="get">
+        <div class = "ramez">
         <select name="days">
             <option value="Saturday">Saturday</option>
             <option value="Sunday">Sunday</option>
@@ -91,6 +98,7 @@
             <option value="Friday">Friday</option>
         </select>
         <input type="submit" name="submit" value="Submit">
+    </div>
         <?php
 $selected_val = '';
 if (isset($_GET['submit'])) {
@@ -111,10 +119,10 @@ $users = DB::select("select * from users INNER JOIN studentandclasses on users.i
 foreach ($users as $user) {
     echo "<tr>";
     echo "<td>$user->name $user->lastName</td>";
-    echo"<form action='/SelectedProfile' method='get'>"; //Edit
-    echo"<input type = 'hidden' name = 'userId' value = '$user->id'/>";
-    echo"<td><input type='submit' value='View' name='view'/></td>";
-    echo"</form>";
+    echo "<form action='/viewprofile2' method='get'>"; //Edit
+    echo "<input type = 'hidden' name = 'userId' value = '$user->id'/>";
+    echo "<td><input type='submit' value='View' name='view'/></td>";
+    echo "</form>";
     echo "<tr>";
 }
 ?>
