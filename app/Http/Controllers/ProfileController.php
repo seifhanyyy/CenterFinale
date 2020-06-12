@@ -42,12 +42,11 @@ class ProfileController extends Controller
         ->update(['img' =>$imageName]);
 return view('profile');
     }
+    
     public function ViewProfileStudent()
     {
         return view('profile');
     }
-
-
 
 }
 
