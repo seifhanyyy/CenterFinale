@@ -163,7 +163,7 @@ $selected_val = '';
   echo"</select>";
   echo"<br>";
     echo "<label for='gender'>Gender:</label><br>"; //Gender
-    echo "<select name='day'>";
+    echo "<select name='gender'>";
     echo"<option value='male'>male</option>";
     echo"<option value='female'>female</option>";
   echo"</select>";
