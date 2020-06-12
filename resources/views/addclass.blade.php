@@ -49,11 +49,25 @@ $selected_val = '';
 
 
     echo "<label for='day'>Day:</label><br>"; //Day
-    echo "<input type='text' id='day' name='day' value='Day'><br>";
+    echo "<select name='day'>";
+      echo"<option value='Saturday'>Saturday</option>";
+      echo"<option value='Sunday'>Sunday</option>";
+      echo"<option value='Monday'>Monday</option>";
+      echo"<option value='Tuesday'>Tuesday</option>";
+      echo"<option value='Wednesday'>Wednesday</option>";
+      echo"<option value='Thursday'>Thursday</option>";
+      echo"<option value='Friday'>Friday</option>";    
+      echo "</select>";
+
+    echo "<br>";
 
     echo "<label for='subject'>Subject:</label><br>"; //Subject
-    echo "<input type='text' id='subject' name='subject' value='Subject'><br><br>";
-
+    echo "<select name='day'>";
+      echo"<option value='English'>English</option>";
+      echo"<option value='Math'>Math</option>";
+      echo"<option value='Arabic'>Arabic</option>";
+    echo"</select>";
+    echo"<br>";
     echo "<label for='teacher'>Teacher:</label><br>"; //Teacher
     echo "<select name='teacher'>";
     foreach ($teachers as $teacher) {
