@@ -38,7 +38,9 @@ class uploadgradescontroller extends Controller
         $grade = $request->input('Grade');
         $sid = $request->input('id');
         $cid = $request->input('courseId');
-        $data = array('sid' => $sid,"courseId"=>$cid, "quizweek" => $week, "grade" => $grade);
+        $alpha=$request->input('GradeOutOF');
+        $alphaalpah=$grade.'/'.$alpha;
+        $data = array('sid' => $sid,"courseId"=>$cid, "quizweek" => $week, "grade" => $alphaalpah);
         DB::table('grades')->insert($data);
         return view("/Teacher");
     }
