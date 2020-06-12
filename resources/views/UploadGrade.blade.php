@@ -32,6 +32,7 @@ foreach ($uploadgrade as $uploadgrade) {
     echo "<td>" . "<input type='textfield' name='QuizWeek' id='QuizWeek'>" . "</td>";
     echo "<td>" . "<input type='textfield' name='Grade' id='Grade'>" . "</td>";
     echo "<td>" . "<input type='hidden' name='id' id='id' value='$uploadgrade->studentId'>" . "</td>";
+    echo "<td>" . "<input type='hidden' name='courseId' id='courseId' value='$uploadgrade->id'>" . "</td>";
     echo "<td>" . "<button type='submit'>add</button>" . "</td>";
     echo "<td>" . "<button type='submit' formaction='/updategrades'>edit</button>" . "</td>";
     echo "</tr>";
