@@ -12,18 +12,21 @@
 </head>
 
 <body>
-    <div class="container emp-profile">
+<div class="container emp-profile">
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="Hooda.jpg" alt="" />
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
-                        </div>
+                        <img src="DeebKanhena/{{Auth::user()->img}}" alt="" />
+                        <br>
+                        <br>
+                        <br>
                     </div>
                 </div>
+                <br>
+                <br>
+                <br>
+                <br>
                 <div class="col-md-6">
                     <div class="profile-head">
 
