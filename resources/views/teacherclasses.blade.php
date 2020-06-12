@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
@@ -13,54 +12,49 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/custom.js"></script>
   <script src="contactform/contactform.js"></script>
-  <style>
-    body {
-      background: -webkit-linear-gradient(left, #a6a6a6, #25c264);
-    }
+<style>
+  body{
+    background: -webkit-linear-gradient(left, #a6a6a6, #25c264);
+}
 
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
-      background: white;
-      border: 3px solid black;
-    }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  border: 3px solid black;
+}
 
-    td,
-    th {
-      border: 1px solid #dddddd;
-      text-align: center;
-      padding: 8px;
-    }
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+h2{
+  text-align: center;
+  color: #ffffff;
+  margin-top: 80px;
+}
+h3{
+    color: #ffffff;
 
-    h2 {
-      text-align: center;
-      color: #ffffff;
-      margin-top: 80px;
-    }
-
-    h3 {
-      color: #ffffff;
-
-      margin-left: 10%;
-    }
-
-    h4 {
-      color: #ffffff;
-      margin-left: 10%;
-    }
-
-    #days {
-      color: #4a4a4a;
-    }
-  </style>
+  margin-left: 10%;
+}
+h4{
+    color: #ffffff;
+    margin-left: 10%;
+}
+.ramez{
+  color: #4a4a4a;
+  text-align: center;
+}
+</style>
 </head>
-
 <body>
-  <!--Navigation bar-->
-  <nav class="navbar navbar-default navbar-fixed-top">
+<!--Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -68,67 +62,72 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/Admin">Al-Mishkah<span></span></a>
+        <a class="navbar-brand" href="/Teacher">Al-Mishkah<span></span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="studentclasses.php">Classes</a></li>
+          <li class="btn-trial"><a href="/UploadGrade">Upload Grades</a></li>
+          <li class="btn-trial"><a href="/profile">Profile</a></li>
+          <li class="btn-trial"><a href="https://drive.google.com/open?id=1SGmnWhhbDm5lb2vsyP5z-sfcTxZDi-O1">Course Mats</a></li>
+
+          <li class="btn-trial"><a href="/logout">Sign out</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <!--/ Navigation bar-->
-  <h2>Edit Classes</h2>
-  <h3>1st Year</h3>
-  </script>
-  <form action="#" method="get">
-    <select name="days">
-      <option value="Saturday">Saturday</option>
-      <option value="Sunday">Sunday</option>
-      <option value="Monday">Monday</option>
-      <option value="Tuesday">Tuesday</option>
-      <option value="Wednesday">Wednesday</option>
-      <option value="Thursday">Thursday</option>
-      <option value="Friday">Friday</option>
+<h2>View Classes</h2>
+</script>
+<form action="#" method="get">
+<div class ="ramez">
+
+<select name="days">
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
     </select>
-    <input type="submit" name="submit" value="Submit">
-    <?php
-    $selected_val = '';
-    if (isset($_GET['submit'])) {
-      $selected_val = $_GET['days'];  // Storing Selected Value In Variable
-      echo $selected_val;
-    }
-    ?>
-  </form>
+<input type="submit" name = "submit" value="Submit">
+</div>
+
+<?php
+$selected_val = '';
+if (isset($_GET['submit'])) {
+    $selected_val = $_GET['days']; // Storing Selected Value In Variable
+}
+?>
+</form>
 
 
-  <br>
-  <table style="float: center;">
-    <tr>
-      <th>Day</th>
-      <th>Teacher</th>
-      <th>Starts</th>
-      <th>Ends</th>
-      <th>Capacity</th>
-      <th>Year</th>
-      <th>Students</th>
+<br>
+<table style="float: center;">
+  <tr>
+    <th>Day</th>
+    <th>Teacher</th>
+    <th>Starts</th>
+    <th>Ends</th>
+    <th>Capacity</th>
+    <th>Year</th>
+    <th>Students</th>
 
-    </tr>
+  </tr>
 
-    <?php
+  <?php
+use Illuminate\Support\Facades\Auth;
 
-    use Illuminate\Support\Facades\Auth;
+$x = Auth::user()->name;
+$alpha = Auth::user()->lastName;
+$omega = $x . " " . $alpha;
 
-    $x = Auth::user()->name;
-    $alpha = Auth::user()->lastName;
-    $omega = $x . " " . $alpha;
+foreach ($data as $i) {
 
-    foreach ($data as $i) {
-
-      $s = $i->day;
-      $beta = $i->teacher;
-      if ($selected_val == $s && $i->teacher == $omega) //hna h3ml auth::
-      {
+    $s = $i->day;
+    $beta = $i->teacher;
+    if ($selected_val == $s && $i->teacher == $omega) //hna h3ml auth::
+    {
 
         //$x = "$i->id";
         echo "<tr>";
@@ -143,13 +142,12 @@
         echo "<th><input type='submit' value='View' name='view'/></th>";
         echo "</form>";
         echo "</tr>";
-      }
     }
-    ?>
+}
+?>
 
-  </table>
+</table>
 
 
 </body>
-
 </html>
