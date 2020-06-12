@@ -34,19 +34,20 @@ class AdminController extends Controller
     }
     public function EditClass(Request $request)//byupdate class day time capacity
     {
-        $classId = $request->input('classId');
-        $day = $request->input('day');
-        $subject = $request->input('subject');
-        $teacher = $request->input('teacher');
-        $starts = $request->input('starts');
-        $ends = $request->input('ends');
-        $capacity = $request->input('capacity');
-        $year = $request->input('year');
-        $gender = $request->input('gender');
+        $classId = request('classId');
+        $day = request('day');
+        $subject = request('subject');
+        $teacher = request('teacher');
+        $starts = request('starts');
+        $ends = request('ends');
+        $capacity = request('capacity');
+        $year = request('year');
+        $gender = request('gender');
         DB::update("Update classes set day = '$day', subject = '$subject',teacher = '$teacher',starts = '$starts'
         ,ends = '$ends',capacity = '$capacity',year = '$year',gender = '$gender' where id = '$classId'");
         $data = classes::all();
         return view('adminclasses', ['data' => $data]);
+
     }
     public function ViewClasses()
     {

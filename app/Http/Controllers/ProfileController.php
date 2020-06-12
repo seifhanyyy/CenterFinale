@@ -16,11 +16,7 @@ class ProfileController extends Controller
         $this->middleware('auth');
     
     }
-<<<<<<< HEAD
     public function SetImage(Request $request)
-=======
-    public function index(Request $request)
->>>>>>> 44e64d72fc863466f6314a4c8091d29f9ccf3234
     {
 
         DB::table('users')
@@ -46,7 +42,6 @@ class ProfileController extends Controller
         ->update(['img' =>$imageName]);
 return view('profile');
     }
-<<<<<<< HEAD
     public function ViewProfileStudent()
     {
         return view('profile');
@@ -54,12 +49,5 @@ return view('profile');
 
 
 
-=======
-    public function view()
-    {
-        return view('profile'); //returns to the profile page
-    }
-
->>>>>>> 44e64d72fc863466f6314a4c8091d29f9ccf3234
 }
 

@@ -93,6 +93,10 @@
                 </div>
                 <div class="col-md-2">
                     <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile">
+                    <br>
+                    <br>
+                    <a href="/send-sms"><input class="profile-edit-btn"  value="Verify Mobile"></a>
+
                 </div>
             </div>
             <div class="row">

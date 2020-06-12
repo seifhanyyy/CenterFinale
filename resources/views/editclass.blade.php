@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 //use Illuminate\Support\Facades\DB;
 $class = DB::select("Select * from classes where id = $classId");
-$teachers = DB::select("Select name from users where type = 2");
+$teachers = DB::select("Select name from users where type = '2'");
 $selected_val = '';
 
 foreach ($class as $i) {
@@ -21,17 +21,16 @@ foreach ($class as $i) {
     echo "<label for='subject'>Subject:</label><br>"; //Subject
     echo "<input type='text' id='subject' name='subject' value='$i->subject'><br><br>";
 
-    echo "<label for='teacher'>Teacher:</label><br>"; //Teacher
-    echo "<input type='hidden' id='teacher' name='teacher' value='$selected_val'><br><br>";
+    echo "<label for='teacher[]'>Teacher:</label><br>"; //Teacher
+    echo "";
 
-    echo "<select name='teachers'>";
+    echo "<select name='teacher'>";
     foreach ($teachers as $teacher) {
-        echo "<option value='teachername' selected disabled hidden>$i->teacher</option>";
-        echo "<option id = 'teacher' name = 'teacher' value = '$teacher->name'>$teacher->name</option>";
+        echo "<option value='0' selected disabled hidden>$i->teacher</option>";
+        echo "<option id='teacher' value='$teacher->name'>$teacher->name</option>";
     }
-    echo "</select>";
 
-    
+    echo "</select>";
 
     echo "<br>";
 
@@ -54,12 +53,12 @@ foreach ($class as $i) {
 
     echo "<input type='submit' value='Submit'>";
     echo "</form>";
-
+    
     // if (isset($_GET['submit'])) {
     //     $selected_val = $_GET['teachers']; // Storing Selected Value In Variable
     // echo $selected_val;
-    // }
-}
+     }
+
 ?>
 </body>
 </html>

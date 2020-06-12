@@ -82,6 +82,8 @@ Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->na
     Route::get('/insert', 'StudentController@EnrollStudent');
     Route::get('/editclass', 'AdminController@SelectedEditClass');
     Route::get('/ramez', 'AdminController@EditClass');
+
+
     Route::get('/teacherclasses', 'TeacherController@ViewTeacherClasses');
     Route::get('/view', 'TeacherController@ViewEnrolledStudents');
     Route::get('/adminclasses', 'AdminController@ViewClasses');
@@ -91,6 +93,7 @@ Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->na
     
     Route::get('/seif', 'AdminController@AddClasses'); //bt3t classes
     
+    Route::get('/send-sms',['as'=>'send.sms','uses'=>'SendSMSController@sendSMS']);
 
     Route::get('Grade', 'uploadgradescontroller@GetGrades')->name('Grade');
     Route::get('UploadGrade', 'uploadgradescontroller@ShowAllStudents')->name('UploadGrade');
