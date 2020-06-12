@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
+  <link rel="stylesheet" type="text/css" href="css/navbar.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+</head>
 <body>
+<!--Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Admin">Al-Mishkah<span></span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="btn-trial"><a href="/addclass">Add Classes</a></li>
+          <li class="btn-trial"><a href="/AddTeacher">Add Teacher</a></li>
+          <li class="btn-trial"><a href="/Transfer">Transfer students</a></li>
+          <li class="btn-trial"><a href="/logout">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
 
 <h2>Edit This Class</h2>
 <?php
+$teachers = DB::select("Select * from users where type = '2'");
 $selected_val = '';
 
     echo "<form action='/seif' method='get'";
+
+    echo "<br>";
+    echo "<br>";
+
 
     echo "<label for='day'>Day:</label><br>"; //Day
     echo "<input type='text' id='day' name='day' value='Day'><br>";
@@ -15,9 +55,12 @@ $selected_val = '';
     echo "<input type='text' id='subject' name='subject' value='Subject'><br><br>";
 
     echo "<label for='teacher'>Teacher:</label><br>"; //Teacher
-    echo "<input type='text' id='teacher' name='teacher' value='Teacher Name'><br><br>";
+    echo "<select name='teacher'>";
+    foreach ($teachers as $teacher) {
+        echo "<option id='teacher' value='$teacher->name $teacher->lastName'>$teacher->name $teacher->lastName</option>";
+    }
 
-    
+    echo "</select>";
 
     echo "<br>";
 
