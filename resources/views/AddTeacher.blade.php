@@ -1,6 +1,34 @@
+<!--Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Admin">Al-Mishkah<span></span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+        <li class="btn-trial"><a href="/adminclasses">Edit Classes</a></li>
+          <li class="btn-trial"><a href="/addclass">Add Classes</a></li>
+          <li class="btn-trial"><a href="/Transfer">Transfer students</a></li>
+          <li class="btn-trial"><a href="/logout">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Navigation bar-->
+
 @extends('layouts.app')
 
 @section('content')
+<br>
+<br>
+<br>
+<br>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -52,10 +52,25 @@
       margin-left: 10%;
     }
 
+<<<<<<< HEAD
     #days {
       color: #4a4a4a;
     }
   </style>
+=======
+  margin-left: 10%;
+}
+h4{
+    color: #ffffff;
+    margin-left: 10%;
+}
+.ramez{
+  color: #4a4a4a;
+  text-align: center;
+
+}
+</style>
+>>>>>>> 8cb91442593d18b23c165dfb72839373e7bca0b4
 </head>
 
 <body>
@@ -72,12 +87,16 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="studentclasses.php">Classes</a></li>
+          <li class="btn-trial"><a href="/addclass">Add Classes</a></li>
+          <li class="btn-trial"><a href="/AddTeacher">Add Teacher</a></li>
+          <li class="btn-trial"><a href="/Transfer">Transfer students</a></li>
+          <li class="btn-trial"><a href="/logout">Sign out</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <!--/ Navigation bar-->
+<<<<<<< HEAD
   <h2>Edit Classes</h2>
   <h3>1st Year</h3>
   </script>
@@ -112,6 +131,59 @@
       <th>Capacity</th>
       <th>Edit</th>
     </tr>
+=======
+<h2>Edit Classes</h2>
+</script>
+<form action="#" method="get">
+<div class ="ramez">
+<select name="days">
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    </select>
+<input type="submit" name = "submit" value="Submit">
+</div>
+
+<?php
+$selected_val = '';
+if(isset($_GET['submit'])){
+$selected_val = $_GET['days'];  // Storing Selected Value In Variable
+}
+?>
+</form>
+
+
+<br>
+<table style="float: center;">
+  <tr>
+    <th>Day</th>
+    <th>Teacher</th>
+    <th>Starts</th>
+    <th>Ends</th>
+    <th>Capacity</th>
+    <th>Year</th>
+    <th>Edit</th>
+  </tr>
+  
+  <?php 
+  foreach($data as $i)
+  {
+  $s = $i->day;
+  if($selected_val == $s)
+  {
+    //$x = "$i->id";
+    echo"<tr>";
+    echo"<td>$i->day</td>";
+    echo"<td>$i->teacher</td>";
+    echo"<td>$i->starts</td>";
+    echo"<td>$i->ends</td>";
+    echo"<td>$i->capacity</td>";
+    echo"<td>$i->year</td>";
+>>>>>>> 8cb91442593d18b23c165dfb72839373e7bca0b4
 
     <?php
     foreach ($data as $i) {
@@ -143,6 +215,7 @@
     ?>
   </table>
 
+<<<<<<< HEAD
 
   <h3>2nd Year</h3>
   <h4 for="days">Choose the day:
@@ -264,6 +337,8 @@
     </tr>
 
   </table>
+=======
+>>>>>>> 8cb91442593d18b23c165dfb72839373e7bca0b4
 </body>
 
 </html>
