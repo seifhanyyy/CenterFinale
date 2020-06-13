@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+h1{
+  color: #4a4a4a;
+  text-align: center;
+}
+</style>
 <!--Navigation bar-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -23,7 +29,7 @@
   <br>
   <br>
   <br>
-  <br>
+  <h1 > Frequently Asked Questions</h1>
   <!--/ Navigation bar-->
 <?php
 
