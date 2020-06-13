@@ -33,7 +33,7 @@ use Illuminate\Http\Request;
 
 $faq=DB::select("select * from faqs");
 
-echo "<table class = 'table' >
+echo "<table class = 'table' border=3px>
 <tr>
 <th>Question</th>
 <th>Answer</th>
