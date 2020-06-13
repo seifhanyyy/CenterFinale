@@ -59,6 +59,10 @@ Route::get('/addclass', function () {
     }
 });
 
+Route::get('/faq', function () {
+        return view('faq');
+});
+
 Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.reset');
 Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset.token');
