@@ -16,7 +16,6 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="btn-trial"><a href="/login">Log in</a></li>
           <li class="btn-trial"><a href="/register">Register</a></li>
-          <li class="btn-trial"><a href="/faq">FAQ</a></li>
         </ul>
       </div>
     </div>
