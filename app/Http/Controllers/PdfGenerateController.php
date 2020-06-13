@@ -16,11 +16,7 @@ class PdfGenerateController extends Controller
         view()->share('grades',$grade);
 
 
-        if($request->has('download')){
-            $pdf = PDF::loadView('pdf.customer');
-
-            return $pdf->download('pdfview.pdf');
-        }
+      
 
 
         return view('profile');
